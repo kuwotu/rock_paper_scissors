@@ -10,13 +10,79 @@
       // A function called ComputerPlay will contain the choices Rock, Paper and Scissors
       // ComputerPlay when called returns either Rock, Paper or Scissors at random
 
-      ComputerPlay = () => {
+      computerPlay = () => {
         let choice = ["rock", "paper", "scissors"];
         let min = 0;
         let max = choice.length - 1;
         let randomChoice = Math.floor(Math.random() * (max - min + 1) + min);
-        console.log(choice[randomChoice]);
+        return choice[randomChoice];
       };
+
+      playerPlay = () => {
+        let userChoice = prompt(
+          "What is your choice? Rock, Paper or Scissors?",
+          ""
+        );
+        // const regEx = /^(rock|paper|scissors)$/i;
+        return userChoice;
+      };
+
+      // playerPlay function is called which allows user to type in their choice.
+      // Their choice has to match rock, paper, or scissors.
+      // Once rock, paper or scissors is entered (case insensitive), this will be the value of playerPlay
+
+      playRound = (playerSelection, computerSelection) => {
+        if ((playerSelection == "rock") & (computerSelection == "paper")) {
+          return "You lose, paper beats rock";
+        } else if (
+          (playerSelection == "rock") &
+          (computerSelection == "scissors")
+        ) {
+          return "You win, rock beats scissors";
+        } else if (
+          (playerSelection == "rock") &
+          (computerSelection == "rock")
+        ) {
+          return "Draw";
+        } else if (
+          (playerSelection == "paper") &
+          (computerSelection == "rock")
+        ) {
+          return "You win, paper beats rock";
+        } else if (
+          (playerSelection == "paper") &
+          (computerSelection == "scissors")
+        ) {
+          return "You lose, scissors beats paper";
+        } else if (
+          (playerSelection == "paper") &
+          (computerSelection == "paper")
+        ) {
+          return "Draw";
+        } else if (
+          (playerSelection == "scissors") &
+          (computerSelection == "rock")
+        ) {
+          return "You lose, rock beats scissors";
+        } else if (
+          (playerSelection == "scissors") &
+          (computerSelection == "paper")
+        ) {
+          return "You win, scissors beats rock";
+        } else if (
+          (playerSelection == "scissors") &
+          (computerSelection == "scissors")
+        ) {
+          return "Draw";
+        }
+      };
+
+      const computerSelection = computerPlay();
+      const playerSelection = playerPlay();
+      console.log(playRound(playerSelection, computerSelection));
+
+      // PlayRound = (playerSelection, computerSelection) => {};
+      //
 
       //User has three options: Rock, Paper or Scissors
       //User chooses Rock, Paper or Scissors
@@ -36,8 +102,6 @@
       // And add 1 point to the computer
       // If the users pick is equal to the computers pick
       //return `Draw - try again`
-
-      function ComputerPlay() {}
     </script>
   </body>
 </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper scissors</title>
+  </head>
+  <body>
+    <script>
+      // A function called ComputerPlay will contain the choices Rock, Paper and Scissors
+      // ComputerPlay when called returns either Rock, Paper or Scissors at random
+
+      ComputerPlay = () => {
+        let choice = ["rock", "paper", "scissors"];
+        let min = 0;
+        let max = choice.length - 1;
+        let randomChoice = Math.floor(Math.random() * (max - min + 1) + min);
+        console.log(choice[randomChoice]);
+      };
+
+      //User has three options: Rock, Paper or Scissors
+      //User chooses Rock, Paper or Scissors
+      //Computer has Rock, Paper or Scissors which it chooses from randomly when the user selects
+      //The choices are compared using the following rules.
+      // rock > scissors
+      // rock < paper
+      // scissors > paper
+      // rock = rock
+      // scissors = scissors
+      // paper = paper
+      // If the users choice is greater than the computers pick
+      //return `You win! ${users pick} beats ${computers pick}
+      // And add 1 point to the user
+      // If the users pick is less than the computers pick
+      //return `You lose! ${computers pick} beats ${users pick}
+      // And add 1 point to the computer
+      // If the users pick is equal to the computers pick
+      //return `Draw - try again`
+
+      function ComputerPlay() {}
+    </script>
+  </body>
+</html>

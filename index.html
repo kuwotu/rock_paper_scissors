@@ -23,85 +23,110 @@
           "What is your choice? Rock, Paper or Scissors?",
           ""
         );
-        // const regEx = /^(rock|paper|scissors)$/i;
         return userChoice;
       };
 
-      // playerPlay function is called which allows user to type in their choice.
-      // Their choice has to match rock, paper, or scissors.
-      // Once rock, paper or scissors is entered (case insensitive), this will be the value of playerPlay
+      let computerScore = 0;
+      let playerScore = 0;
 
-      playRound = (playerSelection, computerSelection) => {
-        if ((playerSelection == "rock") & (computerSelection == "paper")) {
-          return "You lose, paper beats rock";
-        } else if (
-          (playerSelection == "rock") &
-          (computerSelection == "scissors")
+      // Got rid of the parameters and moved the computerSelection and playerSelection inside the playRound function.
+      // so that the function can be called again instead of re using the first result of the prompt.
+      // Also added the scores inside the playRound function.
+      // By assigning the playerPlay(); to playerSelection, I can take the result of the prompt and
+      // add a .toLowerCase function to playerSelection so that the if statement works. This solves the case insensitive problme
+
+      playRound = () => {
+        const computerSelection = computerPlay();
+        const playerSelection = playerPlay();
+
+        if (
+          playerSelection.toLowerCase() == "rock" &&
+          computerSelection == "paper"
         ) {
-          return "You win, rock beats scissors";
+          ++computerScore;
+          console.log("You lose - paper beats rock.");
+          console.log(`Your score: ${playerScore}`);
+          console.log(`Computer score: ${computerScore}`);
         } else if (
-          (playerSelection == "rock") &
-          (computerSelection == "rock")
+          playerSelection.toLowerCase() == "rock" &&
+          computerSelection == "scissors"
         ) {
-          return "Draw";
+          ++playerScore;
+          console.log("You win - rock beats scissors.");
+          console.log(`Your score: ${playerScore}`);
+          console.log(`Computer score: ${computerScore}`);
         } else if (
-          (playerSelection == "paper") &
-          (computerSelection == "rock")
+          playerSelection.toLowerCase() == "rock" &&
+          computerSelection == "rock"
         ) {
-          return "You win, paper beats rock";
+          console.log("Draw - You both chose rock.");
+          console.log(`Your score: ${playerScore}`);
+          console.log(`Computer score: ${computerScore}`);
         } else if (
-          (playerSelection == "paper") &
-          (computerSelection == "scissors")
+          playerSelection.toLowerCase() == "paper" &&
+          computerSelection == "rock"
         ) {
-          return "You lose, scissors beats paper";
+          ++playerScore;
+          console.log("You win - paper beats rock.");
+          console.log(`Your score: ${playerScore}`);
+          console.log(`Computer score: ${computerScore}`);
         } else if (
-          (playerSelection == "paper") &
-          (computerSelection == "paper")
+          playerSelection.toLowerCase() == "paper" &&
+          computerSelection == "scissors"
         ) {
-          return "Draw";
+          ++computerScore;
+          console.log("You lose - scissors beats paper.");
+          console.log(`Your score: ${playerScore}`);
+          console.log(`Computer score: ${computerScore}`);
         } else if (
-          (playerSelection == "scissors") &
-          (computerSelection == "rock")
+          playerSelection.toLowerCase() == "paper" &&
+          computerSelection == "paper"
         ) {
-          return "You lose, rock beats scissors";
+          console.log("Draw - You both chose paper.");
+          console.log(`Your score: ${playerScore}`);
+          console.log(`Computer score: ${computerScore}`);
         } else if (
-          (playerSelection == "scissors") &
-          (computerSelection == "paper")
+          playerSelection.toLowerCase() == "scissors" &&
+          computerSelection == "rock"
         ) {
-          return "You win, scissors beats rock";
+          ++computerScore;
+          console.log("You lose - rock beats scissors.");
+          console.log(`Your score: ${playerScore}`);
+          console.log(`Computer score: ${computerScore}`);
         } else if (
-          (playerSelection == "scissors") &
-          (computerSelection == "scissors")
+          playerSelection.toLowerCase() == "scissors" &&
+          computerSelection == "paper"
         ) {
-          return "Draw";
+          ++playerScore;
+          console.log("You win - scissors beats rock.");
+          console.log(`Your score: ${playerScore}`);
+          console.log(`Computer score: ${computerScore}`);
+        } else if (
+          playerSelection.toLowerCase() == "scissors" &&
+          computerSelection == "scissors"
+        ) {
+          console.log("Draw - You both chose scissors.");
+          console.log(`Your score: ${playerScore}`);
+          console.log(`Computer score: ${computerScore}`);
         }
       };
 
-      const computerSelection = computerPlay();
-      const playerSelection = playerPlay();
-      console.log(playRound(playerSelection, computerSelection));
+      game = () => {
+        playRound();
+        playRound();
+        playRound();
+        playRound();
+        playRound();
+        if (computerScore < playerScore) {
+          console.log(`You win!!! ${playerScore} - ${computerScore}`);
+        } else if (computerScore > playerScore) {
+          console.log(`You lose :( ${computerScore} - ${playerScore}`);
+        } else if (computerScore === playerScore) {
+          console.log(`Wow, it's a draw. ${playerScore} - ${computerScore}`);
+        }
+      };
 
-      // PlayRound = (playerSelection, computerSelection) => {};
-      //
-
-      //User has three options: Rock, Paper or Scissors
-      //User chooses Rock, Paper or Scissors
-      //Computer has Rock, Paper or Scissors which it chooses from randomly when the user selects
-      //The choices are compared using the following rules.
-      // rock > scissors
-      // rock < paper
-      // scissors > paper
-      // rock = rock
-      // scissors = scissors
-      // paper = paper
-      // If the users choice is greater than the computers pick
-      //return `You win! ${users pick} beats ${computers pick}
-      // And add 1 point to the user
-      // If the users pick is less than the computers pick
-      //return `You lose! ${computers pick} beats ${users pick}
-      // And add 1 point to the computer
-      // If the users pick is equal to the computers pick
-      //return `Draw - try again`
+      console.log(game());
     </script>
   </body>
 </html>

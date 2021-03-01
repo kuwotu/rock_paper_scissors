@@ -32,3 +32,17 @@ Use prompt() to get input from the user. Read the docs here if you need to.
 Feel free to re-work your previous functions if you need to. Specifically, you might want to change the return value to something more useful.
 
 Feel free to create more “helper” functions if you think it would be useful.
+
+SOLUTIONS
+
+So I managed to make the game(); function run 5 times. 
+What I did was change the playRound(); function so that it didnt have parameters.
+The parameters were taking the result of computerPlay(); and playerPlay(); and storing them as variable which were passed into the playRound();
+function with parameters computerSelection and playerSelection. Instead, I took off the parameters and only called the function playRound();
+and put the computerPlay(); and playerPlay(); inside of it after assigning it to a variable.
+This way everytime playRound(); is called, a new round is played.
+Case insensitive problem was solved with the to.LowerCase() function.
+
+
+Only thing to add is functionality whereby if playerPlayer.toLowerCase() doesn't equal rock, paper or scissors, run playRound();
+again and console.log("Input has to be either rock, paper or scissors") 

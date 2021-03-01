@@ -23,7 +23,7 @@
           "What is your choice? Rock, Paper or Scissors?",
           ""
         );
-        return userChoice;
+        return userChoice.toLowerCase();
       };
 
       let computerScore = 0;
@@ -39,54 +39,42 @@
         const computerSelection = computerPlay();
         const playerSelection = playerPlay();
 
-        if (
-          playerSelection.toLowerCase() == "rock" &&
-          computerSelection == "paper"
-        ) {
+        if (playerSelection == "rock" && computerSelection == "paper") {
           ++computerScore;
           console.log("You lose - paper beats rock.");
           console.log(`Your score: ${playerScore}`);
           console.log(`Computer score: ${computerScore}`);
         } else if (
-          playerSelection.toLowerCase() == "rock" &&
+          playerSelection == "rock" &&
           computerSelection == "scissors"
         ) {
           ++playerScore;
           console.log("You win - rock beats scissors.");
           console.log(`Your score: ${playerScore}`);
           console.log(`Computer score: ${computerScore}`);
-        } else if (
-          playerSelection.toLowerCase() == "rock" &&
-          computerSelection == "rock"
-        ) {
+        } else if (playerSelection == "rock" && computerSelection == "rock") {
           console.log("Draw - You both chose rock.");
           console.log(`Your score: ${playerScore}`);
           console.log(`Computer score: ${computerScore}`);
-        } else if (
-          playerSelection.toLowerCase() == "paper" &&
-          computerSelection == "rock"
-        ) {
+        } else if (playerSelection == "paper" && computerSelection == "rock") {
           ++playerScore;
           console.log("You win - paper beats rock.");
           console.log(`Your score: ${playerScore}`);
           console.log(`Computer score: ${computerScore}`);
         } else if (
-          playerSelection.toLowerCase() == "paper" &&
+          playerSelection == "paper" &&
           computerSelection == "scissors"
         ) {
           ++computerScore;
           console.log("You lose - scissors beats paper.");
           console.log(`Your score: ${playerScore}`);
           console.log(`Computer score: ${computerScore}`);
-        } else if (
-          playerSelection.toLowerCase() == "paper" &&
-          computerSelection == "paper"
-        ) {
+        } else if (playerSelection == "paper" && computerSelection == "paper") {
           console.log("Draw - You both chose paper.");
           console.log(`Your score: ${playerScore}`);
           console.log(`Computer score: ${computerScore}`);
         } else if (
-          playerSelection.toLowerCase() == "scissors" &&
+          playerSelection == "scissors" &&
           computerSelection == "rock"
         ) {
           ++computerScore;
@@ -94,7 +82,7 @@
           console.log(`Your score: ${playerScore}`);
           console.log(`Computer score: ${computerScore}`);
         } else if (
-          playerSelection.toLowerCase() == "scissors" &&
+          playerSelection == "scissors" &&
           computerSelection == "paper"
         ) {
           ++playerScore;
@@ -102,7 +90,7 @@
           console.log(`Your score: ${playerScore}`);
           console.log(`Computer score: ${computerScore}`);
         } else if (
-          playerSelection.toLowerCase() == "scissors" &&
+          playerSelection == "scissors" &&
           computerSelection == "scissors"
         ) {
           console.log("Draw - You both chose scissors.");

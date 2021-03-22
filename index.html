@@ -7,8 +7,8 @@
   </head>
   <body>
     <script>
-      // A function called ComputerPlay will contain the choices Rock, Paper and Scissors
-      // ComputerPlay when called returns either Rock, Paper or Scissors at random
+      // A function called ComputerPlay will contain the choices Rock, Paper and Scissors.
+      // ComputerPlay when called returns either Rock, Paper or Scissors at random.
 
       computerPlay = () => {
         let choice = ["rock", "paper", "scissors"];
@@ -33,7 +33,8 @@
       // so that the function can be called again instead of re using the first result of the prompt.
       // Also added the scores inside the playRound function.
       // By assigning the playerPlay(); to playerSelection, I can take the result of the prompt and
-      // add a .toLowerCase function to playerSelection so that the if statement works. This solves the case insensitive problme
+      // add a .toLowerCase function to playerSelection so that the if statement works.
+      // This solves the case insensitive problem.
 
       playRound = () => {
         const computerSelection = computerPlay();
@@ -96,6 +97,11 @@
           console.log("Draw - You both chose scissors.");
           console.log(`Your score: ${playerScore}`);
           console.log(`Computer score: ${computerScore}`);
+        } else if (!playerSelection == "rock" || "paper" || "scissors") {
+          alert(
+            "Your input is not a choice - please type either rock, paper or scissors."
+          );
+          playRound();
         }
       };
 
